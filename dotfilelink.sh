@@ -1,7 +1,7 @@
 #!/bin/sh
  
  
-FILE=".vimrc .bashrc"
+FILE=`ls -A |egrep -v ".git|dotfilelink.sh"`
 cd ~/
 for i in $FILE
 do
