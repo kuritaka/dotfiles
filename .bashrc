@@ -19,5 +19,11 @@ alias less='less -X'
 # history
 HISTSIZE=10000
 HISTFILESIZE=10000
-HISTTIMEFORMAT='%Y-%m-%dT%T%z '
-HISTIGNORE="history*:pwd"
+HISTTIMEFORMAT='%F %T %z '
+PROMPT_COMMAND="history -a"  # Add to history every command execution
+#HISTIGNORE="history*:pwd"
+
+#PS1
+#[USER@HOSTNAME PWD HH:MM:SS]$
+#PS1="[\u@\h \w \$(date +"%H:%M:%S")]\$ "
+PS1="[\u@\h \w \t]\$ "
