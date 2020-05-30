@@ -1,0 +1,19 @@
+# cheat sheet for vim
+
+
+
+#--------------------------------------------------
+# Netrw
+#--------------------------------------------------
+mb          Bookmark
+qb          Check Bookmark list
+<Num>qb     cd Directory
+
+
+#--------------------------------------------------
+# Use .vimrc or .vim outside the home directory
+#--------------------------------------------------
+alias vim='vim -u /home/xxxx/xxxx/.vimrc'
+
+#.vimrc
+set runtimepath+=/home/xxxx/xxxx/.vim
