@@ -1,0 +1,13 @@
+set viewcolumns=*{name}..,16{mtime},7{}.
+set timefmt=" %Y/%m/%d %H:%M:%S "
+
+set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
+set sizefmt=units:iec,precision:3
+
+
+"set vicmd="C:/msys64/usr/bin/less.exe -N"
+set vicmd="C:/HashiCorp/Vagrant/embedded/usr/bin/less.exe -N"
+
+filextype *.pdf
+        \ {View in AR}
+        \ "C:/Program Files/SumatraPDF/SumatraPDF.exe" %"f &,
