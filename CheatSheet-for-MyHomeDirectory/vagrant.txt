@@ -1,0 +1,6 @@
+# cheat sheet for vagrant
+
+cd /p/vm_img/vagrant/centos7a ; vagrant up ; vagrant ssh
+cd /p/vm_img/vagrant/centos7b ; vagrant up ; vagrant ssh
+
+
