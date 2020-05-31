@@ -1,3 +1,8 @@
+"============================================================
+"vifm
+"vifmrc for Windows
+"============================================================
+
 set viewcolumns=*{name}..,16{mtime},7{}.
 set timefmt=" %Y/%m/%d %H:%M:%S "
 
@@ -5,8 +10,17 @@ set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
 set sizefmt=units:iec,precision:3
 
 
+"------------------------------------------------------------
+" Commands
+"------------------------------------------------------------
+nnoremap X :!start %f<cr>
+
 "set vicmd="C:/msys64/usr/bin/less.exe -N"
 set vicmd="C:/HashiCorp/Vagrant/embedded/usr/bin/less.exe -N"
+
+
+command! vim "C:/Program Files/Git/usr/bin/vim.exe" %f
+nnoremap E :vim<cr>
 
 filextype *.pdf
         \ {View in AR}
