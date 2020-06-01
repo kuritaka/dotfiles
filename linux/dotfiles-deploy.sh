@@ -1,7 +1,7 @@
 #!/bin/sh
  
  
-FILE=`ls -A |egrep -v ".git|dotfilelink.sh"`
+FILE=`ls -A |egrep -v ".git|dotfiles-deploy.sh"`
 
 for i in $FILE
 do

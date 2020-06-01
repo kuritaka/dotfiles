@@ -7,8 +7,12 @@
 ### Linux
 
 ```
+~]$ cd
+~]$ rm dotfiles
 ~]$ git clone https://github.com/kuritaka/dotfiles
-~]$ sh dotfiles/dotfileslink.sh
+~]$ cd dotfiles/linux
+~]$ chmod +x dotfiles-deploy.sh
+~]$ ./dotfiles-deploy.sh
 ```
 
 
