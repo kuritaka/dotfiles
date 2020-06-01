@@ -3,7 +3,9 @@
 
 
 ## How to use
+
 ### Linux
+
 ```
 ~]$ cd
 ~]$ git clone https://github.com/kuritaka/dotfiles
