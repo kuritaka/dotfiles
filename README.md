@@ -3,10 +3,13 @@
 
 
 ## How to use
-
+###Linux
 ```
+~]$ cd
 ~]$ git clone https://github.com/kuritaka/dotfiles
-~]$ sh dotfiles/dotfileslink.sh
+~]$ cd dotfiles/Linux
+~]$ chmod +x dotfiles-deploy.sh
+~]$ ./dotfiles-deploy.sh
 ```
 
 
