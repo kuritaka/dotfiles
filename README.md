@@ -8,7 +8,7 @@
 
 ```
 ~]$ cd
-~]$ rm dotfiles
+~]$ test -e dotfiles && mv dotfiles dotfiles.`date -d '1day ago' +%Y%m%d`
 ~]$ git clone https://github.com/kuritaka/dotfiles
 ~]$ cd dotfiles/linux
 ~]$ chmod +x dotfiles-deploy.sh
