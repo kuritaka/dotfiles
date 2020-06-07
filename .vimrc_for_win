@@ -6,11 +6,14 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 set fileformats=unix,dos,mac
 set ambiwidth=double  " Character collapse
 
+"---------------------------------------------------------- 
+set t_ti=""   " Exit leaving the screen of vim
+
 
 "----------------------------------------------------------
 "color
 "----------------------------------------------------------
-syntax enable
+syntax on
 colorscheme atom-dark-256
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
@@ -49,22 +52,22 @@ set nosmartindent " Check the syntax of the previous line on line feed and incre
 "endif
 
 
-"---------------------------------------------------------- 
-set t_ti=""   " Exit leaving the screen of vim
 
-"--------------------
+"---------------------------------------------------------- 
 "search
-"--------------------
+"---------------------------------------------------------- 
 set ignorecase
 set smartcase
 set wrapscan
 set incsearch
 set hlsearch
 
+" Toggle highlighting by pressing the ESC key twice
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
-"--------------------
+"---------------------------------------------------------- 
 " Netrw
-"--------------------
+"---------------------------------------------------------- 
 let g:netrw_liststyle=1 "list like ls -l
 
 let g:netrw_sizestyle="H"

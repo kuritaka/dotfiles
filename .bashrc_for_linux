@@ -1,4 +1,6 @@
 # .bashrc
+# Run every time you start the shell
+# .bash_profile -> .bashrc
 
 # User specific aliases and functions
 
@@ -14,7 +16,7 @@ fi
 # alias
 which vim > /dev/null 2>&1 && alias vi='vim'
 which vim > /dev/null 2>&1 && alias view='vim -R'
-alias less='less -X'
+alias less='less -X'   # Prevent screen clear when less command ends
  
 # history
 HISTSIZE=10000

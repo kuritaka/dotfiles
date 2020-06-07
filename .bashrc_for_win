@@ -1,3 +1,6 @@
+# .bashrc
+# Run every time you start the shell
+# .bash_profile -> .bashrc
 
 #alias
 alias ls='ls --show-control-chars -F --color --ignore={NTUSER.*,ntuser.*}'
@@ -6,5 +9,5 @@ alias cp='cp -i'
 alias mv='mv -i'
 which vim > /dev/null 2>&1 && alias vi='vim'
 which vim > /dev/null 2>&1 && alias view='vim -R'
-alias less='less -X'
+alias less='less -X'  # Prevent screen clear when less command ends
 
