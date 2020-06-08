@@ -7,7 +7,7 @@ set fileformats=unix,dos,mac
 set ambiwidth=double  " Character collapse
 
 "---------------------------------------------------------- 
-set t_ti=""   " Exit leaving the screen of vim
+"set t_ti=""   " Exit leaving the screen of vim #It doesn't work on my Windows
 
 
 "----------------------------------------------------------
