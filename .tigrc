@@ -1,0 +1,66 @@
+# tig configuration
+#===============================================================
+#Key
+#===============================================================
+#bind status P !git push origin
+# set key 'g' / goto file top
+bind generic g      move-first-line
+
+# set key 'G' / goto file bottom
+bind generic G      move-last-line
+bind main    G      move-last-line
+
+# set key 'E'
+bind generic E      view-grep
+
+# set key 'F'
+bind generic F      ?git fetch %(remote)
+bind main    F      ?git fetch %(remote)
+
+# set key 'U'
+bind generic U      ?git pull %(remote)
+
+# set key 'C'
+bind generic C      !git commit
+#bind refs    C      !git commit
+bind main    C      !git commit
+
+# set key 'P'
+bind generic P      ?git push -u %(remote) %(repo:head)
+
+
+#===============================================================
+#===============================================================
+# set vertical-split = yes
+#set vertical-split = no
+set vertical-split = auto
+
+# Enable mouse 
+set mouse = true
+
+# Ignore case when searching  (default: false)
+set ignore-case = true
+
+# Timing to refresh 
+set refresh-mode = auto
+#set refresh-mode = after-command
+#set refresh-mode = periodic
+#set refresh-interval = 1
+#
+
+set editor-line-number = yes
+
+
+#===============================================================
+# Color Settings
+#===============================================================
+color default white black
+color cursor default magenta
+color date cyan default
+color delimiter cyan default
+color line-number yellow default
+color diff-header yellow default
+color diff-index blue default
+color diff-chunk magenta default
+color "Reported-by:" green default
+color graph-commit cyan default
