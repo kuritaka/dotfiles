@@ -1,10 +1,13 @@
 "============================================================
 "vifm
-"vifmrc for Windows
+"vifmrc for Linux
 "============================================================
 
 " Selected color scheme
+" Ref https://github.com/vifm/vifm-colors
+" wget -P ~/.vifm/colors https://raw.githubusercontent.com/vifm/vifm-colors/master/solarized-dark.vifm
 colorscheme solarized-dark
+
 
 "" show hiddden files in both panes
 set dotfiles
