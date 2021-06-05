@@ -12,7 +12,7 @@ git config --list
 $ which vim
 /usr/bin/vim
 $ git config --global core.editor "/usr/bin/vim"
-$ git config --list
+$ cat ~/.gitconfig 
 
 Windows
 [core]

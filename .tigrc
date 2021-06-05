@@ -21,9 +21,9 @@ bind main    F      ?git fetch %(remote)
 bind generic U      ?git pull %(remote)
 
 # set key 'C'
-bind generic C      !git commit
+#bind generic C      !git commit
 #bind refs    C      !git commit
-bind main    C      !git commit
+#bind main    C      !git commit
 
 # set key 'P'
 bind generic P      ?git push -u %(remote) %(repo:head)
@@ -52,7 +52,7 @@ set editor-line-number = yes
 
 
 " Word-by-word diff highlights 
-set diff-highlight = true
+" set diff-highlight = true
 
 
 #===============================================================
