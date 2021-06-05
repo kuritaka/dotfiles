@@ -4,6 +4,7 @@
 "============================================================
 
 " Selected color scheme
+" Ref https://vifm.info/colorschemes.shtml
 " Ref https://github.com/vifm/vifm-colors
 " wget -P ~/.vifm/colors https://raw.githubusercontent.com/vifm/vifm-colors/master/solarized-dark.vifm
 colorscheme solarized-dark

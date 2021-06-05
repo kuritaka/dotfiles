@@ -1,1 +1,21 @@
 # cheat sheet for git
+
+
+### Check Configuration  ###
+cat ~/.gitconfig 
+git config --list
+
+
+
+
+### Editor Settings ###
+$ which vim
+/usr/bin/vim
+$ git config --global core.editor "/usr/bin/vim"
+$ git config --list
+
+Windows
+[core]
+editor = P:/win-soft/free/cmder/cmder/vendor/git-for-windows/usr/bin/vim
+
+
