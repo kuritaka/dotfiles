@@ -51,9 +51,6 @@ set refresh-mode = auto
 set editor-line-number = yes
 
 
-" Word-by-word diff highlights 
-" set diff-highlight = true
-
 
 #===============================================================
 # Color Settings
