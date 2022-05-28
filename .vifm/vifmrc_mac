@@ -47,6 +47,7 @@ set incsearch
 " set line number
 set number
 
+
 " show list of matches on tab complition in command-line mode
 set wildmenu
 
@@ -72,6 +73,9 @@ nnoremap <space> t<down>
 :com cp cp %f %D
 
 
+:com path echo %f
+" :com path echo %f | pbcopy
+
 "----------------------------------------------------------------------
 " BookMark and Note
 "----------------------------------------------------------------------
@@ -85,13 +89,14 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 
 :com cheat vi ~/.vifm/cheart.txt
 
+
 "----------------------------------------------------------------------
 " Program
 "----------------------------------------------------------------------
 " Open the current file with the associated default application
 nnoremap X :!open %f<cr>
 
-" -N  = --LINE-NUMBERS "
+" For l command :  -N  = --LINE-NUMBERS "
 set vicmd="less -N"
 
 command! vim vim %f
