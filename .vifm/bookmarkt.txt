@@ -1,0 +1,6 @@
+#test
+/home/xxxxxxx
+/Volume/GoogleDrive/xxxxxxx/
+/Volume/GoogleDrive/aaaaaaa/
+/Volume/GoogleDrive/bbbbbbb/
+/Volume/GoogleDrive/ccccccc/
