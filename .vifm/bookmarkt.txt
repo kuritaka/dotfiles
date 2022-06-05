@@ -1,6 +1,13 @@
 #test
-/home/xxxxxxx
+
+#GoogleDrive
 /Volume/GoogleDrive/xxxxxxx/
 /Volume/GoogleDrive/aaaaaaa/
 /Volume/GoogleDrive/bbbbbbb/
 /Volume/GoogleDrive/ccccccc/
+
+## PC
+/home/xxxxxxx/
+
+# Git
+/xxxxxx/
