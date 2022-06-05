@@ -22,6 +22,17 @@ set timefmt=" %Y/%m/%d %H:%M:%S "
 set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
 set sizefmt=units:iec,precision:3
 
+
+set history=100
+
+" What should be saved automatically between vifm runs
+" Like in previous versions of vifm
+" set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
+" Like in vi
+set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
+    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
+
+
 "----------------------------------------------------------------------
 "----------------------------------------------------------------------
 " Trash Directory
@@ -63,15 +74,25 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 "----------------------------------------------------------------------
 " Synchronize the opposite pane with the current pane 
 nnoremap , :sync!<cr>
+nnoremap o :sync!<cr>
+
 
 " Set the space key to "Select the current file and move the cursor down one"
 nnoremap <space> t<down>
-
 
 " Move selected files to the other directory "
 :com mv mv %f %D
 :com cp cp %f %D
 
+
+" Faster renaming
+nnoremap I cw<c-a>
+nnoremap C cw<c-u>
+nnoremap A cw
+
+
+" New tabnnoremap gn :tabnew<cr>
+nnoremap gn :tabnew<cr>
 
 
 " https://wiki.vifm.info/index.php/How_to_copy_path_to_current_file/directory_to_system_clipboard
@@ -109,6 +130,8 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 "----------------------------------------------------------------------
 " Program
 "----------------------------------------------------------------------
+nnoremap F :file<cr>
+
 " Open the current file with the associated default application
 nnoremap X :!open %f<cr>
 
