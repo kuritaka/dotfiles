@@ -1,0 +1,77 @@
+"============================================================
+"vifm
+"vifmrc for Windows WSL
+"============================================================
+
+" Selected color scheme
+" Ref https://vifm.info/colorschemes.shtml
+" Ref https://github.com/vifm/vifm-colors
+" wget -P ~/.vifm/colors https://raw.githubusercontent.com/vifm/vifm-colors/master/solarized-dark.vifm
+" wget -P ~/.vifm/colors https://raw.githubusercontent.com/vifm/vifm-colors/master/near-default.vifm
+" colorscheme solarized-dark
+colorscheme near-default
+
+
+"" show hiddden files in both panes
+set dotfiles
+" windo normal zo
+
+set viewcolumns=*{name}..,16{mtime},7{}.
+set timefmt=" %Y/%m/%d %H:%M:%S "
+
+set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
+set sizefmt=units:iec,precision:3
+
+"------------------------------------------------------------
+"------------------------------------------------------------
+" Trash Directory
+" The default is to move files that are deleted with dd or :d to
+" the trash directory.  If you change this you will not be able to move
+" files by deleting them and then using p to put the file in the new location.
+" I recommend not changing this until you are familiar with vifm.
+" This probably shouldn't be an option.
+" set trash
+
+
+" Ignore case in search patterns unless it contains at least one uppercase
+" letter
+set ignorecase
+set smartcase
+
+" Don't highlight search results automatically
+set nohlsearch
+
+" Use increment searching (search while typing)
+set incsearch
+
+" set line number  "
+set number
+
+
+:com mv mv %f %D
+:com cp cp %f %D
+
+
+" peco
+command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
+
+
+"------------------------------------------------------------
+" Commands
+"------------------------------------------------------------
+" Synchronize the opposite pane with the current pane 
+nnoremap , :sync!<cr>
+nnoremap o :sync!<cr>
+
+
+" Open Default Application
+nnoremap X :!cmd.exe /c start $(wslpath -w .)/%c<cr>
+
+nnoremap F :file<cr>
+
+command pdfsoft "/mnt/c/Program Files/Adobe/Acrobat DC/Acrobat/Acrobat.exe" &
+filetype *.pdf "/mnt/c/Program Files/Adobe/Acrobat DC/Acrobat/Acrobat.exe" %c &
+filetype *.mp4 "/mnt/c/Program Files (x86)/VideoLAN/VLC/vlc.exe" %c &
+filetype *.mp3 "/mnt/c/Program Files (x86)/VideoLAN/VLC/vlc.exe" %c &
+
+
