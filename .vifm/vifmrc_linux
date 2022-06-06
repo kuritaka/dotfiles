@@ -44,6 +44,8 @@ set nohlsearch
 " Use increment searching (search while typing)
 set incsearch
 
+" Display sorting dialog
+nnoremap s :sort<cr>
 
 "------------------------------------------------------------
 " Commands

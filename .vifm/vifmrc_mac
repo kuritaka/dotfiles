@@ -76,6 +76,8 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 nnoremap , :sync!<cr>
 nnoremap o :sync!<cr>
 
+" Display sorting dialog
+nnoremap s :sort<cr>
 
 " Set the space key to "Select the current file and move the cursor down one"
 nnoremap <space> t<down>

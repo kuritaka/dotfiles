@@ -63,6 +63,9 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 nnoremap , :sync!<cr>
 nnoremap o :sync!<cr>
 
+" Display sorting dialog
+nnoremap s :sort<cr>
+
 
 " Open Default Application
 nnoremap X :!cmd.exe /c start $(wslpath -w .)/%c<cr>
