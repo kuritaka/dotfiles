@@ -68,7 +68,7 @@ nnoremap s :sort<cr>
 
 
 " Open Default Application
-nnoremap X :!cmd.exe /c start $(wslpath -w .)/%c<cr>
+nnoremap X :!cmd.exe /c start $(wslpath -u %c)<cr>
 
 nnoremap F :file<cr>
 
