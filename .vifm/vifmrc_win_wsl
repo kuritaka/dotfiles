@@ -48,14 +48,6 @@ set incsearch
 set number
 
 
-:com mv mv %f %D
-:com cp cp %f %D
-
-
-" peco
-command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
-
-
 "------------------------------------------------------------
 " Commands
 "------------------------------------------------------------
@@ -66,9 +58,35 @@ nnoremap o :sync!<cr>
 " Display sorting dialog
 nnoremap s :sort<cr>
 
+:com mv mv %f %D
+:com cp cp %f %D
+
+" Faster renaming
+nnoremap I cw<c-a>
+nnoremap C cw<c-u>
+nnoremap A cw
+
+
+" New tabnnoremap gn :tabnew<cr>
+nnoremap gn :tabnew<cr>
+
+
+"----------------------------------------------------------------------
+" BookMark and Note
+"----------------------------------------------------------------------
+" peco
+command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
+
+
+"----------------------------------------------------------------------
+" Program
+"----------------------------------------------------------------------
+"nnoremap . :!cmd.exe /c start $(wslpath -u .)<cr>
+nnoremap . :!explorer.exe  . &<cr>
 
 " Open Default Application
 nnoremap X :!cmd.exe /c start $(wslpath -u %c)<cr>
+
 
 nnoremap F :file<cr>
 

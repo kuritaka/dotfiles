@@ -3,6 +3,10 @@
 "vifmrc for Mac
 "============================================================
 
+" For l command :  -N  = --LINE-NUMBERS "
+set vicmd="less -N"
+
+
 " Selected color scheme
 " Ref https://vifm.info/colorschemes.shtml
 " Ref https://github.com/vifm/vifm-colors
@@ -67,6 +71,8 @@ set wildstyle=popup
 
 " show suggestions
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
+
 
 
 "----------------------------------------------------------------------
@@ -134,11 +140,11 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 "----------------------------------------------------------------------
 nnoremap F :file<cr>
 
+nnoremap . :!open . <cr>
+
 " Open the current file with the associated default application
 nnoremap X :!open %f<cr>
 
-" For l command :  -N  = --LINE-NUMBERS "
-set vicmd="less -N"
 
 command! vim vim %f
 nnoremap E :vim<cr>
