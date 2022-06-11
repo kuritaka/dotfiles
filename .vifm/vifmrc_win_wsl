@@ -85,7 +85,8 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 nnoremap . :!explorer.exe  . &<cr>
 
 " Open Default Application
-nnoremap X :!cmd.exe /c start $(wslpath -u %c)<cr>
+"nnoremap X :!explorer.exe $(wslpath -u %c)&<cr>
+nnoremap X :!explorer.exe %f&<cr>
 
 
 nnoremap F :file<cr>
