@@ -132,9 +132,8 @@ nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked to cl
 "peco"
 command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
 
-
-:com cheat vi ~/.vifm/cheart-vifm.txt
-:com cheat vi ~/.vifm/cheart-git.txt
+:com cheatvifm vi ~/.vifm/cheat-vifm.txt
+:com cheatgit vi ~/.vifm/cheat-git.txt
 
 
 "----------------------------------------------------------------------
