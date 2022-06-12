@@ -76,7 +76,7 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
 
 "----------------------------------------------------------------------
-" Commands
+" remap
 "----------------------------------------------------------------------
 " Synchronize the opposite pane with the current pane 
 nnoremap , :sync!<cr>
@@ -87,10 +87,6 @@ nnoremap s :sort<cr>
 
 " Set the space key to "Select the current file and move the cursor down one"
 nnoremap <space> t<down>
-
-" Move selected files to the other directory "
-:com mv mv %f %D
-:com cp cp %f %D
 
 
 " Faster renaming
@@ -120,6 +116,13 @@ nnoremap yn :!echo -n %c | pbcopy %i<cr>:echo expand('%"c') "is yanked to clipbo
 nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked to clipboard"<cr>
 
 
+"----------------------------------------------------------------------
+" Commands
+"----------------------------------------------------------------------
+" Move selected files to the other directory "
+:com mv mv %f %D
+:com cp cp %f %D
+
 
 "----------------------------------------------------------------------
 " BookMark and Note
@@ -129,10 +132,9 @@ nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked to cl
 "peco"
 command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
 
-:com cdtmp :cd /tmp
-:com cdhome :cd /home/user01
 
-:com cheat vi ~/.vifm/cheart.txt
+:com cheat vi ~/.vifm/cheart-vifm.txt
+:com cheat vi ~/.vifm/cheart-git.txt
 
 
 "----------------------------------------------------------------------
