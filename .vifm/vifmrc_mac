@@ -148,7 +148,9 @@ nnoremap X :!open %f<cr>
 
 
 command! vim vim %f
-nnoremap E :vim<cr>
+"nnoremap E :vim<cr>
+nnoremap E :!code %f<cr>
+
 
 " Pdf "
 filetype {*.pdf},<application/pdf>
