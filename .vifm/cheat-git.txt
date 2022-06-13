@@ -1,1 +1,10 @@
-#cheat-vifm
+#cheat-git
+
+git status
+git reflog
+git add -A
+git status
+git commit -m "anything"
+git push
+
+
