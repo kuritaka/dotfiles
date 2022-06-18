@@ -70,6 +70,13 @@ nnoremap A cw
 nnoremap gn :tabnew<cr>
 
 
+" Yank current directory path into the clipboard
+nmap yd :!echo %d | clip.exe %i<cr>
+
+" Yank current file path into the clipboard
+nmap yf :!echo %c:p | clip.exe %i<cr>
+
+
 "------------------------------------------------------------
 " Commands
 "------------------------------------------------------------
