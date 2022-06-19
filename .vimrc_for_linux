@@ -23,7 +23,7 @@ colorscheme atom-dark-256
 "----------------------------------------------------------
 set t_ti=""   " Exit leaving the screen of vim
 
-
+set belloff=all
 
 "----------------------------------------------------------
 " Status Line
