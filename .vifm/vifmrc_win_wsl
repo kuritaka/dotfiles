@@ -94,19 +94,19 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 "----------------------------------------------------------------------
 " Program
 "----------------------------------------------------------------------
-"nnoremap . :!cmd.exe /c start $(wslpath -u .)<cr>
 nnoremap . :!explorer.exe  . &<cr>
 
 " Open Default Application
-"nnoremap X :!explorer.exe $(wslpath -u %c)&<cr>
-nnoremap X :!explorer.exe %f&<cr>
-
+nnoremap X :!explorer.exe %c &<cr>
 
 nnoremap F :file<cr>
 
-command pdfsoft "/mnt/c/Program Files/Adobe/Acrobat DC/Acrobat/Acrobat.exe" &
-filetype *.pdf "/mnt/c/Program Files/Adobe/Acrobat DC/Acrobat/Acrobat.exe" %c &
-filetype *.mp4 "/mnt/c/Program Files (x86)/VideoLAN/VLC/vlc.exe" %c &
-filetype *.mp3 "/mnt/c/Program Files (x86)/VideoLAN/VLC/vlc.exe" %c &
+filetype *.pdf explorer.exe  %c &
+filetype *.mp4 explorer.exe %c &
+filetype *.mp3 explorer.exe %c &
 
+filetype *.drowio explorer.exe %c &
 
+filetype *.doc,*.docx explorer.exe %c &
+filetype *.xls,*.xlsx explorer.exe %c &
+filetype *.ppt,*.pptx explorer.exe %c &
