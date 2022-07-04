@@ -123,6 +123,9 @@ nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked to cl
 :com mv mv %f %D
 :com cp cp %f %D
 
+:com one :only
+:com two :vsplit
+
 
 "----------------------------------------------------------------------
 " BookMark and Note

@@ -83,6 +83,9 @@ nmap yf :!echo %c:p | clip.exe %i<cr>
 :com mv mv %f %D
 :com cp cp %f %D
 
+:com one :only
+:com two :vsplit
+
 
 "----------------------------------------------------------------------
 " BookMark and Note
@@ -101,6 +104,8 @@ nnoremap X :!explorer.exe %c &<cr>
 
 nnoremap F :file<cr>
 
+
+filetype *.txt explorer.exe %c &
 filetype *.pdf explorer.exe  %c &
 filetype *.mp4 explorer.exe %c &
 filetype *.mp3 explorer.exe %c &
@@ -110,3 +115,5 @@ filetype *.drowio explorer.exe %c &
 filetype *.doc,*.docx explorer.exe %c &
 filetype *.xls,*.xlsx explorer.exe %c &
 filetype *.ppt,*.pptx explorer.exe %c &
+
+filetype *.odt explorer.exe %c &

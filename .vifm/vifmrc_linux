@@ -47,10 +47,44 @@ set incsearch
 " Display sorting dialog
 nnoremap s :sort<cr>
 
+
 "------------------------------------------------------------
-" Commands
+" remap
 "------------------------------------------------------------
 " Synchronize the opposite pane with the current pane 
 nnoremap , :sync!<cr>
+nnoremap o :sync!<cr>
 
+" Display sorting dialog
+nnoremap s :sort<cr>
+
+" Faster renaming
+nnoremap I cw<c-a>
+nnoremap C cw<c-u>
+nnoremap A cw
+
+" New tabnnoremap gn :tabnew<cr>
+nnoremap gn :tabnew<cr>
+
+
+"------------------------------------------------------------
+" Commands
+"------------------------------------------------------------
+:com mv mv %f %D
+:com cp cp %f %D
+
+:com one :only
+:com two :vsplit
+
+
+"----------------------------------------------------------------------
+" BookMark and Note
+"----------------------------------------------------------------------
+"fzf"
+" command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
+"peco"
+command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
+
+:com cheatvifm vi ~/.vifm/cheat-vifm.txt
+:com cheatgit vi ~/.vifm/cheat-git.txt
 
