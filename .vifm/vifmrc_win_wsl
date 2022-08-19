@@ -104,9 +104,11 @@ nnoremap X :!explorer.exe %c &<cr>
 
 nnoremap F :file<cr>
 
+" sudo apt install ubuntu-wsl "
+filetype *.pdf wslview %c &
+
 
 filetype *.txt explorer.exe %c &
-filetype *.pdf explorer.exe  %c &
 filetype *.mp4 explorer.exe %c &
 filetype *.mp3 explorer.exe %c &
 
