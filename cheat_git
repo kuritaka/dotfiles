@@ -22,6 +22,7 @@ git push origin new-branch-name
 git push origin main
 
 
+git reflog
 
 #--------------------------------------------------------
 # Git Configuratioin
