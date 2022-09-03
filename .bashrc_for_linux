@@ -28,4 +28,5 @@ PROMPT_COMMAND="history -a"  # Add to history every command execution
 #PS1
 #[USER@HOSTNAME PWD HH:MM:SS]$
 #PS1="[\u@\h \w \$(date +"%H:%M:%S")]\$ "
+#PS1="[\u@\h \w \t]# "
 PS1="[\u@\h \w \t]\$ "
