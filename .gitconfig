@@ -1,0 +1,19 @@
+[user]
+    name = kuritaka
+    email = xxxxxxxxxx@users.noreply.github.com
+[core]
+    editor = vim
+[credential]
+    helper = cache
+
+##How to connect to GitHub with SSH key authentication
+[url "github:"]
+    InsteadOf = https://github.com/
+    InsteadOf = git@github.com:
+
+#~/.ssh/config is required
+#
+##Host github github.com
+##  HostName github.com
+##  IdentityFile ~/.ssh/id_rsa_github
+##  User git
