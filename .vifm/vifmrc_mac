@@ -74,13 +74,15 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
 
 
-
 "----------------------------------------------------------------------
 " remap
 "----------------------------------------------------------------------
 " Synchronize the opposite pane with the current pane 
 nnoremap , :sync!<cr>
 nnoremap o :sync!<cr>
+" nnoremap , <Tab>:sync!<cr><Tab>
+" nnoremap o <Tab>:sync!<cr><Tab>
+
 
 " Display sorting dialog
 nnoremap s :sort<cr>

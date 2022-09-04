@@ -3,6 +3,11 @@
 "vifmrc for Windows WSL
 "============================================================
 
+" For l command :  -N  = --LINE-NUMBERS "
+"set vicmd="less -N"
+set vicmd=vim
+
+
 " Selected color scheme
 " Ref https://vifm.info/colorschemes.shtml
 " Ref https://github.com/vifm/vifm-colors
@@ -49,6 +54,15 @@ set incsearch
 " set line number  "
 set number
 
+" show list of matches on tab complition in command-line mode "
+set wildmenu
+
+" use popup window instead of a single line for completion "
+set wildstyle=popup
+
+" show suggestions "
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
 
 "------------------------------------------------------------
 " remap
@@ -56,6 +70,9 @@ set number
 " Synchronize the opposite pane with the current pane 
 nnoremap , :sync!<cr>
 nnoremap o :sync!<cr>
+" nnoremap , <Tab>:sync!<cr><Tab>
+" nnoremap o <Tab>:sync!<cr><Tab>
+
 
 " Display sorting dialog
 nnoremap s :sort<cr>
@@ -85,6 +102,10 @@ nmap yf :!echo %c:p | clip.exe %i<cr>
 
 :com one :only
 :com two :vsplit
+
+
+command! vim vim %f
+nnoremap E :vim<cr>
 
 
 "----------------------------------------------------------------------
