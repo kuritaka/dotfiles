@@ -32,6 +32,19 @@ if [ -e /usr/local/share/zsh-completions ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
+#Display a list of completion candidates
+setopt auto_list
+
+#TAB to toggle sequential completion candidates
+setopt auto_menu
+
+#When a list of possible completions is displayed, you can be selected by Tab or arrows.
+zstyle ':completion:*:default' menu select=1
+
+#Coloring of candidate completions
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
 #Completion matches lowercase and uppercase letters
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
@@ -43,7 +56,12 @@ autoload colors
 zstyle ':completion:*' list-colors ''
 
 
+
+
 #------------------------------------------
+#Can move directories by typing paths directly.
+setopt auto_cd
+
 #Correct spelling of commands
 setopt correct
 
