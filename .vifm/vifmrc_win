@@ -83,6 +83,9 @@ nnoremap o :sync!<cr>
 " Display sorting dialog
 nnoremap s :sort<cr>
 
+" Set the space key to "Select the current file and move the cursor down one"
+nnoremap <space> t<down>
+
 " Faster renaming
 nnoremap I cw<c-a>
 nnoremap C cw<c-u>
