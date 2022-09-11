@@ -146,4 +146,5 @@ filetype *.doc,*.docx explorer.exe %c &
 filetype *.xls,*.xlsx explorer.exe %c &
 filetype *.ppt,*.pptx explorer.exe %c &
 
+filetype *.ods explorer.exe %c &
 filetype *.odt explorer.exe %c &
