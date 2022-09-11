@@ -169,6 +169,9 @@ fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
 filetype *.doc,*.docx open -a 'Microsoft Word.app'
 filetype *.xls,*.xlsx open -a 'Microsoft Excel.app'
 filetype *.ppt,*.pptx open -a 'Microsoft PowerPoint.app'
+filetype *.ods open
+filetype *.odt open
+
 
 " Open .pkg binaries  "
 filetype *.pkg open
