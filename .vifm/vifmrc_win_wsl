@@ -46,7 +46,7 @@ set ignorecase
 set smartcase
 
 " Don't highlight search results automatically
-set nohlsearch
+" set nohlsearch
 
 " Use increment searching (search while typing)
 set incsearch
@@ -63,7 +63,6 @@ set wildstyle=popup
 " show suggestions "
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
-
 "------------------------------------------------------------
 " remap
 "------------------------------------------------------------
@@ -79,7 +78,6 @@ nnoremap s :sort<cr>
 
 " Set the space key to "Select the current file and move the cursor down one"
 nnoremap <space> t<down>
-
 
 " Faster renaming
 nnoremap I cw<c-a>
@@ -101,18 +99,15 @@ nmap yf :!echo %c:p | clip.exe %i<cr>
 
 
 
-"------------------------------------------------------------
+"----------------------------------------------------------------------
 " Commands
-"------------------------------------------------------------
+"----------------------------------------------------------------------
 :com mv mv %f %D
 :com cp cp %f %D
 
 :com one :only
 :com two :vsplit
 
-
-command! vim vim %f
-nnoremap E :vim<cr>
 
 
 "----------------------------------------------------------------------
@@ -125,6 +120,11 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 "----------------------------------------------------------------------
 " Program
 "----------------------------------------------------------------------
+command! vim vim %f
+nnoremap E :vim<cr>
+
+command diff vim -d %f %F
+
 nnoremap . :!explorer.exe  . &<cr>
 
 " Open Default Application
@@ -140,11 +140,13 @@ filetype *.txt explorer.exe %c &
 filetype *.mp4 explorer.exe %c &
 filetype *.mp3 explorer.exe %c &
 
-filetype *.drowio explorer.exe %c &
 
 filetype *.doc,*.docx explorer.exe %c &
 filetype *.xls,*.xlsx explorer.exe %c &
 filetype *.ppt,*.pptx explorer.exe %c &
 
+
 filetype *.ods explorer.exe %c &
 filetype *.odt explorer.exe %c &
+
+filetype *.drowio explorer.exe %c &
