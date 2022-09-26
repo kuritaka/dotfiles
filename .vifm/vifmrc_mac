@@ -3,10 +3,6 @@
 "vifmrc for Mac
 "============================================================
 
-" For l command :  -N  = --LINE-NUMBERS "
-set vicmd="less -N"
-
-
 " Selected color scheme
 " Ref https://vifm.info/colorschemes.shtml
 " Ref https://github.com/vifm/vifm-colors
@@ -16,7 +12,7 @@ set vicmd="less -N"
 colorscheme near-default
 
 
-" show hiddden files in both panes
+"" show hiddden files in both panes
 set dotfiles
 " windo normal zo
 
@@ -26,19 +22,8 @@ set timefmt=" %Y/%m/%d %H:%M:%S "
 set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
 set sizefmt=units:iec,precision:3
 
-
-set history=100
-
-" What should be saved automatically between vifm runs
-" Like in previous versions of vifm
-" set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
-" Like in vi
-set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
-    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
-
-
-"----------------------------------------------------------------------
-"----------------------------------------------------------------------
+"------------------------------------------------------------
+"------------------------------------------------------------
 " Trash Directory
 " The default is to move files that are deleted with dd or :d to
 " the trash directory.  If you change this you will not be able to move
@@ -59,19 +44,8 @@ set nohlsearch
 " Use increment searching (search while typing)
 set incsearch
 
-" set line number
-set number
-
-
-" show list of matches on tab complition in command-line mode
-set wildmenu
-
-" use popup window instead of a single line for completion
-set wildstyle=popup
-
-" show suggestions
-set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
-
+" Display sorting dialog
+nnoremap s :sort<cr>
 
 
 "----------------------------------------------------------------------
@@ -80,22 +54,14 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 " Synchronize the opposite pane with the current pane 
 nnoremap , :sync!<cr>
 nnoremap o :sync!<cr>
-" nnoremap , <Tab>:sync!<cr><Tab>
-" nnoremap o <Tab>:sync!<cr><Tab>
-
 
 " Display sorting dialog
 nnoremap s :sort<cr>
-
-" Set the space key to "Select the current file and move the cursor down one"
-nnoremap <space> t<down>
-
 
 " Faster renaming
 nnoremap I cw<c-a>
 nnoremap C cw<c-u>
 nnoremap A cw
-
 
 " New tabnnoremap gn :tabnew<cr>
 nnoremap gn :tabnew<cr>
@@ -121,7 +87,6 @@ nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked to cl
 "----------------------------------------------------------------------
 " Commands
 "----------------------------------------------------------------------
-" Move selected files to the other directory "
 :com mv mv %f %D
 :com cp cp %f %D
 
@@ -144,6 +109,12 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 "----------------------------------------------------------------------
 " Program
 "----------------------------------------------------------------------
+command! vim vim %f
+nnoremap E :vim<cr>
+"nnoremap E :!code %f<cr>
+
+command diff vim -d %f %F
+
 nnoremap F :file<cr>
 
 nnoremap . :!open . <cr>
@@ -152,9 +123,6 @@ nnoremap . :!open . <cr>
 nnoremap X :!open %f<cr>
 
 
-command! vim vim %f
-"nnoremap E :vim<cr>
-nnoremap E :!code %f<cr>
 
 
 " Pdf "
