@@ -6,6 +6,21 @@
 [credential]
     helper = cache
 
+
+#----------------------------------------------------
+# git diff, git difftool, git dt
+#----------------------------------------------------
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[alias]
+    dt = difftool
+
+
+#----------------------------------------------------
+# GitHub
+#----------------------------------------------------
 ##How to connect to GitHub with SSH key authentication
 [url "github:"]
     InsteadOf = https://github.com/
@@ -17,3 +32,4 @@
 ##  HostName github.com
 ##  IdentityFile ~/.ssh/id_rsa_github
 ##  User git
+

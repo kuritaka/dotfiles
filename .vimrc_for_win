@@ -1,3 +1,9 @@
+"==============================================================================
+" .vimrc for windows
+"
+"
+"==============================================================================
+
 "----------------------------------------------------------
 "LANG
 "----------------------------------------------------------
@@ -6,37 +12,55 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 set fileformats=unix,dos,mac
 set ambiwidth=double  " Character collapse
 
-"---------------------------------------------------------- 
-"set t_ti=""   " Exit leaving the screen of vim #It doesn't work on my Windows
 
-set belloff=all
 
 "----------------------------------------------------------
 "color
 "----------------------------------------------------------
 syntax on
+"colorscheme elflord
 colorscheme atom-dark-256
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 
 "----------------------------------------------------------
-" Tab
-"----------------------------------------------------------
-set tabstop=4 " Width occupied by tab characters on the screen
-set expandtab " Replace tab input with multiple blank inputs
-set softtabstop=4 " The width at which the cursor moves with a tab key or backspace key for consecutive blanks
-set shiftwidth=4
+"set t_ti=""   " Exit leaving the screen of vim #It doesn't work on my Windows
+
+set belloff=all
+
+set number
 
 "----------------------------------------------------------
-" indent
+"git diff
 "----------------------------------------------------------
+"Show matching parts in diff display
+set diffopt=filler,context:10000
+
+" Default to not read-only in vimdiff
+set noro
+
+"----------------------------------------------------------
+" Status Line
+"----------------------------------------------------------
+set laststatus=2 " Always show status line
+set showmode " Show current mode
+set showcmd " The hit command is displayed below the status line
+set ruler " Display the position of the cursor on the right side of the status line
+
+
+"----------------------------------------------------------
+" Tab indent
+"----------------------------------------------------------
+set shiftwidth=4 " Width that increases and decreases with smartindent
+set expandtab " Replace tab input with multiple blank inputs
+set tabstop=4 " Width occupied by tab characters on the screen
+set softtabstop=4 " The width at which the cursor moves with a tab key or backspace key for consecutive blanks
 set formatoptions-=ro "Disable automatic commenting on line breaks
 autocmd FileType * set comments=
 set noautoindent " Continue indentation of previous line at line feed
 set nosmartindent " Check the syntax of the previous line on line feed and increase / decrease the indent of the next line
 "set autoindent " Continue indentation of previous line at line feed
 "set smartindent " Check the syntax of the previous line on line feed and increase / decrease the indent of the next line
-"set shiftwidth=4 " Width that increases and decreases with smartindent
 
 " Avoid automatic indentation when pasting from clipboard in insert mode
 "if &term =~ "xterm"
@@ -54,17 +78,17 @@ set nosmartindent " Check the syntax of the previous line on line feed and incre
 
 
 
-"---------------------------------------------------------- 
-"search
-"---------------------------------------------------------- 
-set ignorecase
-set smartcase
-set wrapscan
-set incsearch
-set hlsearch
+"----------------------------------------------------------
+" Search string
+"----------------------------------------------------------
+set incsearch " Incremental Search
+set ignorecase " Search pattern is not case sensitive
+set smartcase " If the search pattern contains uppercase letters, distinguish case
+set hlsearch " Highlight search results
 
 " Toggle highlighting by pressing the ESC key twice
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
 
 "---------------------------------------------------------- 
 " Netrw

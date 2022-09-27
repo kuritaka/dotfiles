@@ -1,16 +1,19 @@
 "==============================================================================
-" .vimrc
+" .vimrc for Linux include WSL2
 "
 "
 "==============================================================================
 
 "----------------------------------------------------------
-" character
+"LANG
 "----------------------------------------------------------
+set encoding=utf-8
 set fileencoding=utf-8 " save with utf-8
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " Automatic determination of character code, priority on the left side
 set fileformats=unix,dos,mac " Automatic discrimination of line feed code, left side has priority
 set ambiwidth=double  " Character collapse
+
+
 
 "----------------------------------------------------------
 "color
@@ -18,12 +21,24 @@ set ambiwidth=double  " Character collapse
 syntax on
 "colorscheme elflord
 colorscheme atom-dark-256
+nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 
 "----------------------------------------------------------
 set t_ti=""   " Exit leaving the screen of vim
 
 set belloff=all
+
+set number
+
+"----------------------------------------------------------
+"git diff
+"----------------------------------------------------------
+"Show matching parts in diff display
+set diffopt=filler,context:10000
+
+" Default to not read-only in vimdiff
+set noro
 
 "----------------------------------------------------------
 " Status Line
@@ -37,12 +52,12 @@ set ruler " Display the position of the cursor on the right side of the status l
 "----------------------------------------------------------
 " Tab indent
 "----------------------------------------------------------
+set shiftwidth=4 " Width that increases and decreases with smartindent
 set expandtab " Replace tab input with multiple blank inputs
 set tabstop=4 " Width occupied by tab characters on the screen
 set softtabstop=4 " The width at which the cursor moves with a tab key or backspace key for consecutive blanks
 set autoindent " Continue indentation of previous line at line feed
 set smartindent " Check the syntax of the previous line on line feed and increase / decrease the indent of the next line
-set shiftwidth=4 " Width that increases and decreases with smartindent
 
 " Avoid automatic indentation when pasting from clipboard in insert mode
 if &term =~ "xterm"
