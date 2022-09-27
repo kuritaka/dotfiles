@@ -3,6 +3,11 @@
 "vifmrc for Linux
 "============================================================
 
+" For l command :  -N  = --LINE-NUMBERS "
+"set vicmd="less -N"
+set vicmd=vim
+
+
 " Selected color scheme
 " Ref https://vifm.info/colorschemes.shtml
 " Ref https://github.com/vifm/vifm-colors
@@ -22,6 +27,8 @@ set timefmt=" %Y/%m/%d %H:%M:%S "
 set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
 set sizefmt=units:iec,precision:3
 
+set history=100
+
 "------------------------------------------------------------
 "------------------------------------------------------------
 " Trash Directory
@@ -39,14 +46,22 @@ set ignorecase
 set smartcase
 
 " Don't highlight search results automatically
-set nohlsearch
+" set nohlsearch
 
 " Use increment searching (search while typing)
 set incsearch
 
-" Display sorting dialog
-nnoremap s :sort<cr>
+" set line number  "
+set number
 
+" show list of matches on tab complition in command-line mode "
+set wildmenu
+
+" use popup window instead of a single line for completion "
+set wildstyle=popup
+
+" show suggestions "
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
 "------------------------------------------------------------
 " remap
@@ -54,14 +69,21 @@ nnoremap s :sort<cr>
 " Synchronize the opposite pane with the current pane 
 nnoremap , :sync!<cr>
 nnoremap o :sync!<cr>
+" nnoremap , <Tab>:sync!<cr><Tab>
+" nnoremap o <Tab>:sync!<cr><Tab>
+
 
 " Display sorting dialog
 nnoremap s :sort<cr>
+
+" Set the space key to "Select the current file and move the cursor down one"
+nnoremap <space> t<down>
 
 " Faster renaming
 nnoremap I cw<c-a>
 nnoremap C cw<c-u>
 nnoremap A cw
+
 
 " New tabnnoremap gn :tabnew<cr>
 nnoremap gn :tabnew<cr>
