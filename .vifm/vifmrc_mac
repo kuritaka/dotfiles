@@ -22,6 +22,8 @@ set timefmt=" %Y/%m/%d %H:%M:%S "
 set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
 set sizefmt=units:iec,precision:3
 
+set history=100
+
 "------------------------------------------------------------
 "------------------------------------------------------------
 " Trash Directory
@@ -44,9 +46,17 @@ set nohlsearch
 " Use increment searching (search while typing)
 set incsearch
 
-" Display sorting dialog
-nnoremap s :sort<cr>
+" set line number  "
+set number
 
+" show list of matches on tab complition in command-line mode "
+set wildmenu
+
+" use popup window instead of a single line for completion "
+set wildstyle=popup
+
+" show suggestions "
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
 "----------------------------------------------------------------------
 " remap
@@ -54,14 +64,21 @@ nnoremap s :sort<cr>
 " Synchronize the opposite pane with the current pane 
 nnoremap , :sync!<cr>
 nnoremap o :sync!<cr>
+" nnoremap , <Tab>:sync!<cr><Tab>
+" nnoremap o <Tab>:sync!<cr><Tab>
+
 
 " Display sorting dialog
 nnoremap s :sort<cr>
+
+" Set the space key to "Select the current file and move the cursor down one"
+nnoremap <space> t<down>
 
 " Faster renaming
 nnoremap I cw<c-a>
 nnoremap C cw<c-u>
 nnoremap A cw
+
 
 " New tabnnoremap gn :tabnew<cr>
 nnoremap gn :tabnew<cr>
@@ -150,4 +167,23 @@ filetype *.gslides open
 
 " Drawio "
 filetype *.drawio  open
+
+
+" Images
+filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> open
+
+
+"-----------------
+" FUSE
+"-----------------
+:filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
+
+" FtpMount
+filetype *.ftp
+       \ {Mount with CurlFtpFS}
+       \ FUSE_MOUNT2|curlftpfs %PARAM %DESTINATION_DIR %CLEAR,
+
+" Don't do too many requests to slow file system
+set slowfs=curlftpfs
+
 
