@@ -78,6 +78,11 @@ nnoremap s :shell<cr>
 " Display sorting dialog
 nnoremap S :sort<cr>
 
+nnoremap w :view<cr>
+
+" Set the space key to "Select the current file and move the cursor down one"
+nnoremap <space> t<down>
+
 " Faster renaming
 nnoremap I cw<c-a>
 nnoremap C cw<c-u>
@@ -86,7 +91,6 @@ nnoremap A cw
 
 " New tabnnoremap gn :tabnew<cr>
 nnoremap gn :tabnew<cr>
-
 
 
 "------------------------------------------------------------
