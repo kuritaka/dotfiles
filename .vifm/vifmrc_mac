@@ -3,6 +3,11 @@
 "vifmrc for Mac
 "============================================================
 
+" For l command :  -N  = --LINE-NUMBERS "
+"set vicmd="less -N"
+set vicmd=vim
+
+
 " Selected color scheme
 " Ref https://vifm.info/colorschemes.shtml
 " Ref https://github.com/vifm/vifm-colors
@@ -58,7 +63,13 @@ set wildstyle=popup
 " show suggestions "
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
-"----------------------------------------------------------------------
+" use popup window instead of a single line for completion "
+set wildstyle=popup
+
+" show suggestions "
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
+"------------------------------------------------------------
 " remap
 "----------------------------------------------------------------------
 " Synchronize the opposite pane with the current pane 
@@ -67,9 +78,11 @@ nnoremap o :sync!<cr>
 " nnoremap , <Tab>:sync!<cr><Tab>
 " nnoremap o <Tab>:sync!<cr><Tab>
 
+" Start shell in current directory
+nnoremap s :shell<cr>
 
 " Display sorting dialog
-nnoremap s :sort<cr>
+nnoremap S :sort<cr>
 
 " Set the space key to "Select the current file and move the cursor down one"
 nnoremap <space> t<down>
@@ -84,6 +97,9 @@ nnoremap A cw
 nnoremap gn :tabnew<cr>
 
 
+"------------------------------------------------------------
+" copy path
+"----------------------------------------------------------------------
 " https://wiki.vifm.info/index.php/How_to_copy_path_to_current_file/directory_to_system_clipboard
 " How to copy path to current file/directory to system clipboard
 :com path :!echo -n %c:p | pbcopy %i<cr>:echo expand('%"c:p') "is yanked to clipboard"<cr>
@@ -114,10 +130,10 @@ nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked to cl
 "----------------------------------------------------------------------
 " BookMark and Note
 "----------------------------------------------------------------------
-"fzf"
-" command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
 "peco"
 command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
+"fzf"
+" command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
 
 :com cheatvifm vi ~/.vifm/cheat-vifm.txt
 :com cheatgit vi ~/.vifm/cheat-git.txt
