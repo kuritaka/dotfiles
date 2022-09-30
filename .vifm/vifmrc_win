@@ -85,6 +85,8 @@ nnoremap s :shell<cr>
 " Display sorting dialog
 nnoremap S :sort<cr>
 
+nnoremap w :view<cr>
+
 " Faster renaming
 nnoremap I cw<c-a>
 nnoremap C cw<c-u>
