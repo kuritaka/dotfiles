@@ -154,3 +154,19 @@ filetype *.ods explorer.exe %c &
 filetype *.odt explorer.exe %c &
 
 filetype *.drowio explorer.exe %c &
+
+" Images
+filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> explorer.exe %c &
+
+"-----------------
+" FUSE
+"-----------------
+:filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
+
+" FtpMount
+filetype *.ftp
+       \ {Mount with CurlFtpFS}
+       \ FUSE_MOUNT2|curlftpfs %PARAM %DESTINATION_DIR %CLEAR,
+
+" Don't do too many requests to slow file system
+set slowfs=curlftpfs
