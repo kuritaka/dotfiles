@@ -79,12 +79,11 @@ nnoremap o :sync!<cr>
 " nnoremap , <Tab>:sync!<cr><Tab>
 " nnoremap o <Tab>:sync!<cr><Tab>
 
+" Start shell in current directory
+nnoremap s :shell<cr>
 
 " Display sorting dialog
-nnoremap s :sort<cr>
-
-" Set the space key to "Select the current file and move the cursor down one"
-nnoremap <space> t<down>
+nnoremap S :sort<cr>
 
 " Faster renaming
 nnoremap I cw<c-a>

@@ -72,12 +72,11 @@ nnoremap o :sync!<cr>
 " nnoremap , <Tab>:sync!<cr><Tab>
 " nnoremap o <Tab>:sync!<cr><Tab>
 
+" Start shell in current directory
+nnoremap s :shell<cr>
 
 " Display sorting dialog
-nnoremap s :sort<cr>
-
-" Set the space key to "Select the current file and move the cursor down one"
-nnoremap <space> t<down>
+nnoremap S :sort<cr>
 
 " Faster renaming
 nnoremap I cw<c-a>
@@ -90,6 +89,11 @@ nnoremap gn :tabnew<cr>
 
 
 
+"------------------------------------------------------------
+" copy path
+"----------------------------------------------------------------------
+" https://wiki.vifm.info/index.php/How_to_copy_path_to_current_file/directory_to_system_clipboard
+" How to copy path to current file/directory to system clipboard
 " Yank current directory path into the clipboard
 nmap yd :!echo %d | clip.exe %i<cr>
 

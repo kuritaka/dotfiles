@@ -3,6 +3,11 @@
 "vifmrc for Mac
 "============================================================
 
+" For l command :  -N  = --LINE-NUMBERS "
+"set vicmd="less -N"
+set vicmd=vim
+
+
 " Selected color scheme
 " Ref https://vifm.info/colorschemes.shtml
 " Ref https://github.com/vifm/vifm-colors
@@ -21,6 +26,8 @@ set timefmt=" %Y/%m/%d %H:%M:%S "
 
 set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
 set sizefmt=units:iec,precision:3
+
+set history=100
 
 "------------------------------------------------------------
 "------------------------------------------------------------
@@ -44,19 +51,32 @@ set nohlsearch
 " Use increment searching (search while typing)
 set incsearch
 
-" Display sorting dialog
-nnoremap s :sort<cr>
+" set line number  "
+set number
 
+" show list of matches on tab complition in command-line mode "
+set wildmenu
 
-"----------------------------------------------------------------------
+" use popup window instead of a single line for completion "
+set wildstyle=popup
+
+" show suggestions "
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
+"------------------------------------------------------------
 " remap
 "----------------------------------------------------------------------
 " Synchronize the opposite pane with the current pane 
 nnoremap , :sync!<cr>
 nnoremap o :sync!<cr>
+" nnoremap , <Tab>:sync!<cr><Tab>
+" nnoremap o <Tab>:sync!<cr><Tab>
+
+" Start shell in current directory
+nnoremap s :shell<cr>
 
 " Display sorting dialog
-nnoremap s :sort<cr>
+nnoremap S :sort<cr>
 
 " Faster renaming
 nnoremap I cw<c-a>
@@ -67,6 +87,9 @@ nnoremap A cw
 nnoremap gn :tabnew<cr>
 
 
+"------------------------------------------------------------
+" copy path
+"----------------------------------------------------------------------
 " https://wiki.vifm.info/index.php/How_to_copy_path_to_current_file/directory_to_system_clipboard
 " How to copy path to current file/directory to system clipboard
 :com path :!echo -n %c:p | pbcopy %i<cr>:echo expand('%"c:p') "is yanked to clipboard"<cr>
@@ -97,10 +120,10 @@ nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked to cl
 "----------------------------------------------------------------------
 " BookMark and Note
 "----------------------------------------------------------------------
-"fzf"
-" command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
 "peco"
 command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
+"fzf"
+" command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
 
 :com cheatvifm vi ~/.vifm/cheat-vifm.txt
 :com cheatgit vi ~/.vifm/cheat-git.txt
