@@ -131,8 +131,10 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 "fzf"
 " command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
 
-:com cheatvifm vi ~/.vifm/cheat-vifm.txt
-:com cheatgit vi ~/.vifm/cheat-git.txt
+nnoremap b :bookmark<cr>
+
+
+:com cheatsheet vi ~/.vifm/cheatsheet.txt
 
 
 "----------------------------------------------------------------------
