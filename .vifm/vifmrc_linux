@@ -72,9 +72,13 @@ nnoremap o :sync!<cr>
 " nnoremap , <Tab>:sync!<cr><Tab>
 " nnoremap o <Tab>:sync!<cr><Tab>
 
+" Start shell in current directory
+nnoremap s :shell<cr>
 
 " Display sorting dialog
-nnoremap s :sort<cr>
+nnoremap S :sort<cr>
+
+nnoremap w :view<cr>
 
 " Set the space key to "Select the current file and move the cursor down one"
 nnoremap <space> t<down>
@@ -103,11 +107,35 @@ nnoremap gn :tabnew<cr>
 "----------------------------------------------------------------------
 " BookMark and Note
 "----------------------------------------------------------------------
+" peco
+command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
 "fzf"
 " command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
-"peco"
-command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
 
-:com cheatvifm vi ~/.vifm/cheat-vifm.txt
-:com cheatgit vi ~/.vifm/cheat-git.txt
+nnoremap b :bookmark<cr>
 
+
+:com cheatsheet vi ~/.vifm/cheatsheet.txt
+
+
+"----------------------------------------------------------------------
+" Program
+"----------------------------------------------------------------------
+command! vim vim %f
+nnoremap E :vim<cr>
+
+command diff vim -d %f %F
+
+
+"-----------------
+" FUSE
+"-----------------
+:filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
+
+" FtpMount
+filetype *.ftp
+       \ {Mount with CurlFtpFS}
+       \ FUSE_MOUNT2|curlftpfs %PARAM %DESTINATION_DIR %CLEAR,
+
+" Don't do too many requests to slow file system
+set slowfs=curlftpfs
