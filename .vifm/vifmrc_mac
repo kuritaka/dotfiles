@@ -158,9 +158,9 @@ filetype *.txt open
 filetype *.pdf open
 
 " Office files  "
-filetype *.doc,*.docx open -a 'Microsoft Word.app'
-filetype *.xls,*.xlsx open -a 'Microsoft Excel.app'
-filetype *.ppt,*.pptx open -a 'Microsoft PowerPoint.app'
+filetype *.doc,*.docx open
+filetype *.xls,*.xlsx,*.xlsm open
+filetype *.ppt,*.pptx open
 filetype *.ods open
 filetype *.odt open
 

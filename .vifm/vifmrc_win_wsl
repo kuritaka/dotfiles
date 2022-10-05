@@ -148,7 +148,13 @@ nnoremap X :!explorer.exe %c &<cr>
 nnoremap F :file<cr>
 
 " sudo apt install ubuntu-wsl "
-filetype *.pdf wslview %c
+
+" Office files  "
+filetype *.doc,*.docx open
+filetype *.xls,*.xlsx,*.xlsm open
+filetype *.ppt,*.pptx open
+filetype *.ods open
+filetype *.odt open
 
 
 filetype *.txt explorer.exe %c &
