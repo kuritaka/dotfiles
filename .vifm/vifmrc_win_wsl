@@ -111,7 +111,7 @@ nmap yf :!echo %c:p | clip.exe %i<cr>
 " Commands
 "----------------------------------------------------------------------
 :com mv mv %f %D
-:com cp cp %f %D
+:com cp cp -pr %f %D
 
 :com one :only
 :com two :vsplit

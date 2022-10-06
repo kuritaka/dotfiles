@@ -101,7 +101,7 @@ nnoremap gn :tabnew<cr>
 " Commands
 "----------------------------------------------------------------------
 :com mv mv %f %D
-:com cp cp %f %D
+:com cp cp -pr %f %D
 
 :com one :only
 :com two :vsplit
