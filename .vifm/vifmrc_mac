@@ -156,6 +156,8 @@ nnoremap X :!open %f<cr>
 
 filetype *.txt open
 filetype *.pdf open
+filetype *.sh open
+filetype *.sql open
 
 " Office files  "
 filetype *.doc,*.docx open
