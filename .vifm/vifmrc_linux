@@ -102,6 +102,8 @@ nnoremap gn :tabnew<cr>
 
 :com one :only
 :com two :vsplit
+nnoremap O :only<cr>
+nnoremap T :two<cr>
 
 
 "----------------------------------------------------------------------

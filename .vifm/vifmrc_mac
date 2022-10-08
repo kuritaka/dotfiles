@@ -121,6 +121,8 @@ nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked to cl
 
 :com one :only
 :com two :vsplit
+nnoremap O :only<cr>
+nnoremap T :two<cr>
 
 
 "----------------------------------------------------------------------
@@ -155,6 +157,7 @@ nnoremap X :!open %f<cr>
 
 
 filetype *.txt open
+filetype *.md open
 filetype *.pdf open
 filetype *.sh open
 filetype *.sql open
