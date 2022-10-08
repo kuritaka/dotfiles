@@ -115,7 +115,8 @@ nmap yf :!echo %c:p | clip.exe %i<cr>
 
 :com one :only
 :com two :vsplit
-
+nnoremap O :only<cr>
+nnoremap T :two<cr>
 
 
 "----------------------------------------------------------------------
@@ -148,6 +149,7 @@ nnoremap X :!explorer.exe %c &<cr>
 nnoremap F :file<cr>
 
 filetype *.txt explorer.exe %c &
+filetype *.md explorer.exe %c &
 filetype *.pdf wslview %c
 filetype *.sh explorer.exe %c &
 filetype *.sql explorer.exe %c &
