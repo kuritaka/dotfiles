@@ -1,0 +1,107 @@
+# Change Prefix (Ctrl-b) to Ctrl-a
+unbind-key C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# Change the starting number of the pane from 0 to 1
+set-option -g base-index 1
+
+# Make tmux startup shell zsh
+set-option -g default-shell /bin/zsh
+
+# Make tmux display 256 colors
+set-option -g default-terminal screen-256color
+set -g terminal-overrides 'xterm:colors=256'
+
+# Change the background color of the status bar
+#set-option -g status-bg "color255"
+
+
+# Transfer to Windows clipboard also when copying (yum install -y xsel)
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xsel -bi"
+
+
+#--------------------------------------------
+# Mouse
+#--------------------------------------------
+# enable switching and resizing of window panes with the mouse
+set-option -g mouse on # tmux 2.1 or later
+# set-option -g mode-mouse on # tmux 2.0 or earlier
+# set-option -g mouse-select-window on # tmux 2.0 or earlier
+# set-option -g mouse-select-pane on # before tmux 2.0
+# set-option -g mouse-resize-pane on # before tmux 2.0
+
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"
+
+# Allow mouse wheel to scroll instead of history
+set -g mouse on
+
+
+
+#--------------------------------------------
+# key bind
+#--------------------------------------------
+# split pane vertically with -h
+bind | split-window -h
+
+# - to split a pane vertically
+bind - split-window -v
+
+
+# Move a pane with vim key bindings
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# resize pane with vim key bindings
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+
+# Create a new window, taking over the current directory
+bind c new-window -c '#{pane_current_path}'
+# Split the pane to left and right, taking over the current directory
+bind % split-window -h -c '#{pane_current_path}'
+# Split pane vertically, taking over current directory
+bind '"' split-window -v -c '#{pane_current_path}'
+
+
+#--------------------------------------------
+# copy-mode
+#--------------------------------------------
+# Use vim key bindings in copy mode
+setw -g mode-keys vi
+
+# begin selection with 'v'
+bind -T copy-mode-vi v send -X begin-selection
+
+# 'V' to select lines
+bind -T copy-mode-vi V send -X select-line
+
+# 'C-v' to select rectangle
+bind -T copy-mode-vi C-v send -X rectangle-toggle
+
+# yank with 'y' bind -T copy-mode-vi
+bind -T copy-mode-vi y send -X copy-selection
+
+# Yank lines with 'y' bind -T copy-mode-vi
+bind -T copy-mode-vi Y send -X copy-line
+
+
+# paste with 'C-p
+bind-key C-p paste-buffer
+
+# Setting Esc to Release Selection
+#bind -T copy-mode-vi Esc send-keys -X clear-selection
+
+
+# Copy to clipboard when copying with WSL and mouse dragging
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "clip.exe"
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "clip.exe"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "clip.exe"
+
+
+
