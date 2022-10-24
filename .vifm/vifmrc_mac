@@ -132,8 +132,10 @@ nnoremap T :two<cr>
 command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
 "fzf"
 " command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
+nnoremap B :bookmark<cr>
 
-nnoremap b :bookmark<cr>
+command! cdgrep :execute 'cd' "'".term('fd --type d --hidden --exclude .git --full-path  | peco 2> /dev/tty')."'"
+nnoremap C :cdgrep<cr>
 
 
 :com cheatsheet vi ~/.vifm/cheatsheet.txt
