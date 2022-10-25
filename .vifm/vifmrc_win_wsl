@@ -128,8 +128,11 @@ command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tt
 " command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
 nnoremap B :bookmark<cr>
 
-command! cdgrep :execute 'cd' "'".term('fdfind --type d --hidden --exclude .git --full-path  | peco 2> /dev/tty')."'"
-nnoremap C :cdgrep<cr>
+
+" find command is slow. You should use fd command.
+" command! cdfind :execute 'cd' "'".term('find . -not -path "*/.git/*" -type d 2>/dev/null | peco 2> /dev/tty |sed "s/$/\//" ')."'"
+command! cdfind :execute 'cd' "'".term('fd --type d --hidden --exclude .git --full-path  | peco 2> /dev/tty')."'"
+nnoremap C :cdfind<cr>
 
 
 :com cheatsheet vi ~/.vifm/cheatsheet.txt
