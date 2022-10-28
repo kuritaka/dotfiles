@@ -132,7 +132,7 @@ nnoremap T :two<cr>
 command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
 "fzf"
 " command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
-nnoremap B :bookmark<cr>
+nnoremap b :bookmark<cr>
 
 
 " find command is slow. You should use fd command.
