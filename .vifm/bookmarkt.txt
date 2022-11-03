@@ -1,5 +1,22 @@
 #test
 
+### WSL2 Example ###
+# C Drive
+/mnt/c/
+/mnt/c/Users/takaaki/
+/mnt/c/Users/takaaki/Downloads/
+/mnt/c/Users/takaaki/Desktop/
+
+##P Drive
+/mnt/p/
+
+##Google Drive
+/mnt/g/My Drive/
+/mnt/g/My Drive/Music/
+
+
+
+### Mac Example ###
 #GoogleDrive
 /Volume/GoogleDrive/xxxxxxx/
 /Volume/GoogleDrive/aaaaaaa/
