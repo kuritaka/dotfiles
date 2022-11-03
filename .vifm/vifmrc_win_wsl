@@ -199,3 +199,11 @@ filetype *.ftp
 
 " Don't do too many requests to slow file system
 set slowfs=curlftpfs
+
+
+"-----------------
+"icon
+"-----------------
+" https://github.com/cirala/vifm_devicons
+source ~/.vifm/favicons.vifm
+

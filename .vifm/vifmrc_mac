@@ -207,3 +207,10 @@ filetype *.ftp
 set slowfs=curlftpfs
 
 
+"-----------------
+"icon
+"-----------------
+" https://github.com/cirala/vifm_devicons
+source ~/.vifm/favicons.vifm
+
+
