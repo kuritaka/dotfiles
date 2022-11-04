@@ -21,7 +21,7 @@ colorscheme near-default
 set dotfiles
 " windo normal zo
 
-set viewcolumns=*{name}..,16{mtime},7{}.
+set viewcolumns=-45%{name}..,5{ext},10{size},12{perms},21{mtime}
 set timefmt=" %Y/%m/%d %H:%M:%S "
 
 set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
