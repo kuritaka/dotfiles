@@ -29,6 +29,13 @@ nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 set belloff=all
 
 set number
+set mouse=a
+
+
+set noswapfile
+set nobackup
+set noundofile
+
 
 "----------------------------------------------------------
 "git diff
@@ -51,11 +58,12 @@ set ruler " Display the position of the cursor on the right side of the status l
 "----------------------------------------------------------
 " Tab indent
 "----------------------------------------------------------
-set shiftwidth=4 " Width that increases and decreases with smartindent
+set tabstop=2 " Width occupied by tab characters on the screen
+set shiftwidth=2 " Width that increases and decreases with smartindent
+set softtabstop=2 " The width at which the cursor moves with a tab key or backspace key for consecutive blanks
 set expandtab " Replace tab input with multiple blank inputs
-set tabstop=4 " Width occupied by tab characters on the screen
-set softtabstop=4 " The width at which the cursor moves with a tab key or backspace key for consecutive blanks
 set formatoptions-=ro "Disable automatic commenting on line breaks
+
 autocmd FileType * set comments=
 set noautoindent " Continue indentation of previous line at line feed
 set nosmartindent " Check the syntax of the previous line on line feed and increase / decrease the indent of the next line
@@ -77,6 +85,11 @@ set nosmartindent " Check the syntax of the previous line on line feed and incre
 "endif
 
 
+"----------------------------------------------------------
+"tab completion
+"----------------------------------------------------------
+set wildmenu
+set wildignorecase
 
 "----------------------------------------------------------
 " Search string
@@ -88,6 +101,8 @@ set hlsearch " Highlight search results
 
 " Toggle highlighting by pressing the ESC key twice
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
+
 
 
 "---------------------------------------------------------- 
