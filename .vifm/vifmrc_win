@@ -85,7 +85,7 @@ nnoremap s :shell<cr>
 " Display sorting dialog
 nnoremap S :sort<cr>
 
-nnoremap w :view<cr>
+nnoremap V :view<cr>
 
 " Faster renaming
 nnoremap I cw<c-a>
@@ -93,31 +93,32 @@ nnoremap C cw<c-u>
 nnoremap A cw
 
 
-" New tabnnoremap gn :tabnew<cr>
-nnoremap gn :tabnew<cr>
+" Tab
+nnoremap <c-t> :tabnew<cr>
+nnoremap t :tabnext<cr>
+nnoremap T :tabprev<cr>
 
-"------------------------------------------------------------
+
 "----------------------------------------------------------------------
 " Commands
 "----------------------------------------------------------------------
-:com mv mv %f %D
-:com cp cp -pr %f %D
+command mv mv %f %D
+command cp cp -pr %f %D
 
-:com one :only
-:com two :vsplit
-nnoremap O :only<cr>
-nnoremap T :two<cr>
+command one :only
+command two :vsplit
 
-
-"----------------------------------------------------------------------
-" Program
-"----------------------------------------------------------------------
 command! vim vim %f
 nnoremap E :vim<cr>
 
 command diff vim -d %f %F
 
+command lg lazygit
 
+
+"----------------------------------------------------------------------
+" GUI Software
+"----------------------------------------------------------------------
 " Open Default Application
 nnoremap X :!start %f<cr>
 
