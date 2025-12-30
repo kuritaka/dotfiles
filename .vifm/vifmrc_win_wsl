@@ -89,8 +89,11 @@ nnoremap C cw<c-u>
 nnoremap A cw
 
 
-" New tabnnoremap gn :tabnew<cr>
-nnoremap gn :tabnew<cr>
+" Tab
+nnoremap <c-t> :tabnew<cr>
+nnoremap t :tabnext<cr>
+nnoremap T :tabprev<cr>
+
 
 
 "------------------------------------------------------------
@@ -115,8 +118,7 @@ nmap yf :!echo %c:p | clip.exe %i<cr>
 
 :com one :only
 :com two :vsplit
-nnoremap O :only<cr>
-nnoremap T :two<cr>
+
 
 
 "----------------------------------------------------------------------
