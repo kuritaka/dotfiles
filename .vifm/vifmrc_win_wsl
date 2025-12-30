@@ -78,7 +78,7 @@ nnoremap s :shell<cr>
 " Display sorting dialog
 nnoremap S :sort<cr>
 
-nnoremap w :view<cr>
+nnoremap V :view<cr>
 
 " Set the space key to "Select the current file and move the cursor down one"
 nnoremap <space> t<down>
