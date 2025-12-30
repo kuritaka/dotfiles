@@ -113,12 +113,18 @@ nmap yf :!echo %c:p | clip.exe %i<cr>
 "----------------------------------------------------------------------
 " Commands
 "----------------------------------------------------------------------
-:com mv mv %f %D
-:com cp cp -pr %f %D
+command mv mv %f %D
+command cp cp -pr %f %D
 
-:com one :only
-:com two :vsplit
+command one :only
+command two :vsplit
 
+command! vim vim %f
+nnoremap E :vim<cr>
+
+command diff vim -d %f %F
+
+command lg lazygit
 
 
 "----------------------------------------------------------------------
@@ -136,17 +142,13 @@ nnoremap b :bookmark<cr>
 command! cdfind :execute 'cd' "'".term('fd --type d --hidden --exclude .git --full-path  | peco 2> /dev/tty')."'"
 nnoremap C :cdfind<cr>
 
-
 :com cheatsheet vi ~/.vifm/cheatsheet.txt
 
 
 "----------------------------------------------------------------------
-" Program
+" GUI Software
 "----------------------------------------------------------------------
-command! vim vim %f
-nnoremap E :vim<cr>
-
-command diff vim -d %f %F
+command code code .
 
 nnoremap . :!explorer.exe  . &<cr>
 

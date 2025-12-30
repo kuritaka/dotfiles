@@ -95,16 +95,21 @@ nnoremap t :tabnext<cr>
 nnoremap T :tabprev<cr>
 
 
-"------------------------------------------------------------
 "----------------------------------------------------------------------
 " Commands
 "----------------------------------------------------------------------
-:com mv mv %f %D
-:com cp cp -pr %f %D
+command mv mv %f %D
+command cp cp -pr %f %D
 
-:com one :only
-:com two :vsplit
+command one :only
+command two :vsplit
 
+command! vim vim %f
+nnoremap E :vim<cr>
+
+command diff vim -d %f %F
+
+command lg lazygit
 
 
 "----------------------------------------------------------------------
@@ -127,12 +132,9 @@ nnoremap C :cdfind<cr>
 
 
 "----------------------------------------------------------------------
-" Program
+" GUI Software
 "----------------------------------------------------------------------
-command! vim vim %f
-nnoremap E :vim<cr>
-
-command diff vim -d %f %F
+command code code .
 
 
 "-----------------

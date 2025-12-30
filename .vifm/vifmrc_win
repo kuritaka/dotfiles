@@ -98,26 +98,27 @@ nnoremap <c-t> :tabnew<cr>
 nnoremap t :tabnext<cr>
 nnoremap T :tabprev<cr>
 
-"------------------------------------------------------------
+
 "----------------------------------------------------------------------
 " Commands
 "----------------------------------------------------------------------
-:com mv mv %f %D
-:com cp cp -pr %f %D
+command mv mv %f %D
+command cp cp -pr %f %D
 
-:com one :only
-:com two :vsplit
+command one :only
+command two :vsplit
 
-
-"----------------------------------------------------------------------
-" Program
-"----------------------------------------------------------------------
 command! vim vim %f
 nnoremap E :vim<cr>
 
 command diff vim -d %f %F
 
+command lg lazygit
 
+
+"----------------------------------------------------------------------
+" GUI Software
+"----------------------------------------------------------------------
 " Open Default Application
 nnoremap X :!start %f<cr>
 
