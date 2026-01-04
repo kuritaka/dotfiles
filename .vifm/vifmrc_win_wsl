@@ -174,8 +174,11 @@ filetype *.ods wslview %c
 filetype *.odt wslview %c
 
 
-filetype *.mp4 explorer.exe %c &
-filetype *.mp3 explorer.exe %c &
+" Multimedia
+filextype *.mp3,*.wav ffplay -hide_banner -autoexit %f
+filextype *.mp4,*.mkv,*.avi,*.flac ffplay  -hide_banner -autoexit %f
+" filetype *.mp4 explorer.exe %c &
+" filetype *.mp3 explorer.exe %c &
 
 
 filetype *.doc,*.docx explorer.exe %c &
@@ -189,7 +192,8 @@ filetype *.odt explorer.exe %c &
 filetype *.drowio explorer.exe %c &
 
 " Images
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> explorer.exe %c &
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm display -immutable -gravity center -geometry +0+0 %f
+" filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> explorer.exe %c &
 
 "-----------------
 " FUSE
