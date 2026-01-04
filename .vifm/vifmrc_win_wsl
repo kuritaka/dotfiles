@@ -192,7 +192,7 @@ filetype *.odt explorer.exe %c &
 filetype *.drowio explorer.exe %c &
 
 " Images
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm display -immutable -gravity center -geometry +0+0 %f
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm display -immutable -gravity center -geometry +0+0 %f &
 " filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> explorer.exe %c &
 
 "-----------------
