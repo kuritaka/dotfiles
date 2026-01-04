@@ -175,8 +175,8 @@ filetype *.odt wslview %c
 
 
 " Multimedia
-filextype *.mp3,*.wav ffplay -hide_banner -autoexit %f
-filextype *.mp4,*.mkv,*.avi,*.flac ffplay  -hide_banner -autoexit %f
+filextype *.mp3,*.wav ffplay -x 800 -y 600 -loop -1 -hide_banner -autoexit %f
+filextype *.mp4,*.mkv,*.avi,*.flac ffplay -x 800 -y 600 -hide_banner -autoexit %f
 " filetype *.mp4 explorer.exe %c &
 " filetype *.mp3 explorer.exe %c &
 
