@@ -49,6 +49,9 @@ set_prompt() {
     PS1="\u@\h:\w $branch\n$ "
 }
 
+unset PROMPT_COMMAND
+PROMPT_COMMAND=set_prompt
+
 
 #Windows
 alias e.='explorer .'
