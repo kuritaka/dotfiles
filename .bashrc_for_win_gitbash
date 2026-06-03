@@ -31,7 +31,24 @@ PROMPT_COMMAND="history -a"  # Add to history every command execution
 #[USER@HOSTNAME PWD HH:MM:SS]$
 #PS1="[\u@\h \w \$(date +"%H:%M:%S")]\$ "
 #PS1="[\u@\h \w \t]# "
-PS1="[\u@\h \w \t]\$ "
+#PS1="[\u@\h \w \t]\$ "
+
+parse_git_branch() {
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then
+        if ! git diff --quiet 2>/dev/null || ! git diff --cached --quiet 2>/dev/null; then
+            echo "($branch*)"
+        else
+            echo "($branch)"
+        fi
+    fi
+}
+
+set_prompt() {
+    local branch="$(parse_git_branch)"
+    PS1="\u@\h:\w $branch\n$ "
+}
+
 
 #Windows
 alias e.='explorer .'
