@@ -36,4 +36,6 @@ PROMPT_COMMAND="history -a"  # Add to history every command execution
 #PS1="[\u@\h \w \t]\$ "
 
 #Windows
+alias e='explorer'
 alias e.='explorer .'
+
