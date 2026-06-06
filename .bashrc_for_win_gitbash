@@ -28,10 +28,14 @@ PROMPT_COMMAND="history -a"  # Add to history every command execution
 #HISTIGNORE="history*:pwd"
 
 #PS1
+# Use the default colored prompt in Git Bash
+
 #[USER@HOSTNAME PWD HH:MM:SS]$
 #PS1="[\u@\h \w \$(date +"%H:%M:%S")]\$ "
 #PS1="[\u@\h \w \t]# "
-PS1="[\u@\h \w \t]\$ "
+#PS1="[\u@\h \w \t]\$ "
 
 #Windows
+alias e='explorer'
 alias e.='explorer .'
+
