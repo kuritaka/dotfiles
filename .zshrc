@@ -94,23 +94,39 @@ PROMPT='
 
 
 #--------------------------------------------
-#ssh with peco
+#ssh with fzf
 #--------------------------------------------
-function peco-ssh () {
-  local selected_host=$(awk '
-  tolower($1)=="host" {
-    for (i=2; i<=NF; i++) {
-      if ($i !~ "[*?]") {
-        print $i
+function ssh-fzf() {
+  local selected_host
+
+  selected_host=$(
+    awk '
+      tolower($1) == "host" {
+        line = ""
+
+        for (i = 2; i <= NF; i++) {
+          if ($i !~ /[*?]/) {
+            line = line (line == "" ? "" : " ") $i
+          }
+        }
+
+        if (line != "") {
+          print line
+        }
       }
-    }
-  }
-  ' ~/.ssh/config | sort | peco --query "$LBUFFER")
-  if [ -n "$selected_host" ]; then
-    BUFFER="ssh ${selected_host}"
+    ' ~/.ssh/config |
+      sort -u |
+      fzf --query="$LBUFFER"
+  )
+
+  if [[ -n "$selected_host" ]]; then
+    BUFFER="ssh ${selected_host%% *}"
+    CURSOR=${#BUFFER}
     zle accept-line
   fi
-  zle clear-screen
+
+  zle reset-prompt
 }
-zle -N peco-ssh
-bindkey '^\' peco-ssh
+
+zle -N ssh-fzf
+bindkey '^\' ssh-fzf
