@@ -2,8 +2,29 @@
 #.zshrc
 ###########################################
 
-
 export LANG=ja_JP.UTF-8
+
+
+# -----------------------------
+# Alias
+# -----------------------------
+alias vi='vim'
+alias cp='cp -i'
+alias rm='rm -i'
+alias fd=fdfind
+alias cmdrefgrep="/mnt/p/git/cmdref/cmdrefrg.sh"
+alias vagrant="export ANSIBLE_CONFIG=$(pwd); /mnt/c/HashiCorp/Vagrant/bin/vagrant.exe"
+alias ansible-playbook="export ANSIBLE_CONFIG=$(pwd); ansible-playbook"
+
+#For WSL
+export ANSIBLE_CONFIG=$(pwd)
+
+
+alias lg='lazygit'
+alias ld='lazydocker'
+alias lq='lazysql'
+alias lt='lazytail'
+
 
 
 #------------------------------------------
@@ -92,25 +113,50 @@ PROMPT='
 #export PS1="%n %~ %# "
 
 
+## fzf option
+export FZF_DEFAULT_OPTS="
+  --height=60%
+  --layout=reverse
+  --border=rounded
+  --info=inline-right
+  --cycle
+"
+
 
 #--------------------------------------------
-#ssh with peco
+#ssh with fzf
 #--------------------------------------------
-function peco-ssh () {
-  local selected_host=$(awk '
-  tolower($1)=="host" {
-    for (i=2; i<=NF; i++) {
-      if ($i !~ "[*?]") {
-        print $i
+function ssh-fzf() {
+  local selected_host
+
+  selected_host=$(
+    awk '
+      tolower($1) == "host" {
+        line = ""
+
+        for (i = 2; i <= NF; i++) {
+          if ($i !~ /[*?]/) {
+            line = line (line == "" ? "" : " ") $i
+          }
+        }
+
+        if (line != "") {
+          print line
+        }
       }
-    }
-  }
-  ' ~/.ssh/config | sort | peco --query "$LBUFFER")
-  if [ -n "$selected_host" ]; then
-    BUFFER="ssh ${selected_host}"
+    ' ~/.ssh/config |
+      sort -u |
+      fzf --query="$LBUFFER"
+  )
+
+  if [[ -n "$selected_host" ]]; then
+    BUFFER="ssh ${selected_host%% *}"
+    CURSOR=${#BUFFER}
     zle accept-line
   fi
-  zle clear-screen
+
+  zle reset-prompt
 }
-zle -N peco-ssh
-bindkey '^\' peco-ssh
+
+zle -N ssh-fzf
+bindkey '^\' ssh-fzf
