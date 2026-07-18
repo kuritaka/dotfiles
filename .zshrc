@@ -2,8 +2,29 @@
 #.zshrc
 ###########################################
 
-
 export LANG=ja_JP.UTF-8
+
+
+# -----------------------------
+# Alias
+# -----------------------------
+alias vi='vim'
+alias cp='cp -i'
+alias rm='rm -i'
+alias fd=fdfind
+alias cmdrefgrep="/mnt/p/git/cmdref/cmdrefrg.sh"
+alias vagrant="export ANSIBLE_CONFIG=$(pwd); /mnt/c/HashiCorp/Vagrant/bin/vagrant.exe"
+alias ansible-playbook="export ANSIBLE_CONFIG=$(pwd); ansible-playbook"
+
+#For WSL
+export ANSIBLE_CONFIG=$(pwd)
+
+
+alias lg='lazygit'
+alias ld='lazydocker'
+alias lq='lazysql'
+alias lt='lazytail'
+
 
 
 #------------------------------------------
@@ -91,6 +112,15 @@ PROMPT='
 #export PS1="%N %~ %# "
 #export PS1="%n %~ %# "
 
+
+## fzf option
+export FZF_DEFAULT_OPTS="
+  --height=60%
+  --layout=reverse
+  --border=rounded
+  --info=inline-right
+  --cycle
+"
 
 
 #--------------------------------------------
