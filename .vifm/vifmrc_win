@@ -1,8 +1,3 @@
-"
-" I don't use this vifmrc in Windows.
-" I use vifm with wsl2.
-"
-
 "============================================================
 "vifm
 "vifmrc for Windows
@@ -28,7 +23,7 @@ colorscheme near-default
 set dotfiles
 " windo normal zo
 
-set viewcolumns=-45%{name}..,5{ext},10{size},12{perms},21{mtime}
+set viewcolumns=-55%{name}..,6{ext},10{size},19{mtime}
 set timefmt=" %Y/%m/%d %H:%M:%S "
 
 set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
@@ -108,8 +103,16 @@ command cp cp -pr %f %D
 command one :only
 command two :vsplit
 
-command! vim vim %f
-nnoremap E :vim<cr>
+" Add the Vim directory to the PATH within Vifm
+let $PATH = $LOCALAPPDATA . '/Programs/Vim;' . $PATH
+
+" Editor to use in Vifm
+set vicmd=vim.exe
+set vixcmd=vim.exe
+
+" Open the file under the cursor in Vim with 'E'
+nnoremap E :edit<cr>
+
 
 command diff vim -d %f %F
 
@@ -119,12 +122,17 @@ command lg lazygit
 "----------------------------------------------------------------------
 " GUI Software
 "----------------------------------------------------------------------
-" Open Default Application
-nnoremap X :!start %f<cr>
+" Directly execute .exe files and the like by pressing Enter
+set runexec
+
+" Open regular files (excluding directories) using Windows file associations
+filextype /[^\/]$/ cmd.exe /c start "" %"c
 
 
-filextype *.pdf
-        \ {View in AR}
-        \ "C:/Program Files/SumatraPDF/SumatraPDF.exe" %"f &,
-
+"----------------------------------------------------------------------
+" Windows
+"----------------------------------------------------------------------
+" WindowsでPowerShell 7
+set shell=pwsh.exe
+let $SHELL = 'pwsh.exe'
 

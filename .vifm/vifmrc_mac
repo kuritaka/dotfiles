@@ -137,9 +137,9 @@ command lg lazygit
 " BookMark and Note
 "----------------------------------------------------------------------
 "peco"
-command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
+" command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
 "fzf"
-" command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf 2>/dev/tty | sed "s/:.*//" ').'"'
+command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf --height=100% 2>/dev/tty | sed "s/:.*//" ').'"'
 nnoremap b :bookmark<cr>
 
 
