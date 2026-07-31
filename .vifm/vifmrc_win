@@ -120,6 +120,20 @@ command lg lazygit
 
 
 "----------------------------------------------------------------------
+" BookMark and Note
+"----------------------------------------------------------------------
+" pwsh.exe
+command! bookmark :execute 'cd' fnameescape(term('pwsh.exe -NoProfile -Command "Get-Content $HOME/.vifm/bookmark.txt | Select-String -NotMatch ''^\s*#'' | Select-String ''\S'' | fzf"'))
+
+"powershell.exe
+"command! bookmark :execute 'cd' fnameescape(term('powershell.exe -NoProfile -Command "Get-Content $HOME/.vifm/bookmark.txt | Select-String -NotMatch ''^\s*#'' | Select-String ''\S'' | fzf"'))
+
+nnoremap b :bookmark<cr>
+
+
+
+
+"----------------------------------------------------------------------
 " GUI Software
 "----------------------------------------------------------------------
 " Directly execute .exe files and the like by pressing Enter
