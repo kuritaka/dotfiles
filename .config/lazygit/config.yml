@@ -4,8 +4,8 @@
 #   C:\Users\<USERNAME>\AppData\Local\lazygit\config.yml
 
 gui:
-  scrollHeight: 20
   language: "en"
+  scrollHeight: 20
   theme:
     activeBorderColor:
       - "#89b4fa"
@@ -29,6 +29,7 @@ gui:
   authorColors:
     "*": "#b4befe"
 git:
+  diffContextSize: 30
   # git log
   branchLogCmd: "git log --graph --color=always --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' {{branchName}} --"
   pagers:
