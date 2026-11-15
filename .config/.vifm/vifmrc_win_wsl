@@ -1,6 +1,6 @@
 "============================================================
 "vifm
-"vifmrc for Mac
+"vifmrc for Windows WSL
 "============================================================
 
 " For l command :  -N  = --LINE-NUMBERS "
@@ -11,8 +11,8 @@ set vicmd=vim
 " Selected color scheme
 " Ref https://vifm.info/colorschemes.shtml
 " Ref https://github.com/vifm/vifm-colors
-" wget -P ~/.vifm/colors https://raw.githubusercontent.com/vifm/vifm-colors/master/solarized-dark.vifm
-" wget -P ~/.vifm/colors https://raw.githubusercontent.com/vifm/vifm-colors/master/near-default.vifm
+" wget -P ~/.config/vifm/colors https://raw.githubusercontent.com/vifm/vifm-colors/master/solarized-dark.vifm
+" wget -P ~/.config/vifm/colors https://raw.githubusercontent.com/vifm/vifm-colors/master/near-default.vifm
 " colorscheme solarized-dark
 colorscheme near-default
 
@@ -46,7 +46,7 @@ set ignorecase
 set smartcase
 
 " Don't highlight search results automatically
-set nohlsearch
+" set nohlsearch
 
 " Use increment searching (search while typing)
 set incsearch
@@ -101,19 +101,13 @@ nnoremap T :tabprev<cr>
 "----------------------------------------------------------------------
 " https://wiki.vifm.info/index.php/How_to_copy_path_to_current_file/directory_to_system_clipboard
 " How to copy path to current file/directory to system clipboard
-:com path :!echo -n %c:p | pbcopy %i<cr>:echo expand('%"c:p') "is yanked to clipboard"<cr>
+" Yank current directory path into the clipboard
+nmap yd :!echo %d | clip.exe %i<cr>
 
-" yank current directory path into the clipboard
-nnoremap yd :!echo -n %d | pbcopy %i<cr>:echo expand('%"d') "is yanked to clipboard"<cr>
+" Yank current file path into the clipboard
+nmap yf :!echo %c:p | clip.exe %i<cr>
 
-" yank current file path into the clipboard
-nnoremap yf :!echo -n %c:p | pbcopy %i<cr>:echo expand('%"c:p') "is yanked to clipboard"<cr>
 
-" yank current filename without path into the clipboard
-nnoremap yn :!echo -n %c | pbcopy %i<cr>:echo expand('%"c') "is yanked to clipboard"<cr>
-
-" yank root of current file's name into the clipboard
-nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked to clipboard"<cr>
 
 
 "----------------------------------------------------------------------
@@ -137,9 +131,9 @@ command lg lazygit
 " BookMark and Note
 "----------------------------------------------------------------------
 "peco"
-" command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
+" command bookmark :execute 'cd "'.term('cat ~/.config/vifm/bookmark.txt | peco 2>/dev/tty | sed "s/:.*//" ').'"'
 "fzf"
-command bookmark :execute 'cd "'.term('cat ~/.vifm/bookmark.txt | fzf --height=100% 2>/dev/tty | sed "s/:.*//" ').'"'
+command bookmark :execute 'cd "'.term('cat ~/.config/vifm/bookmark.txt | fzf --height=100% 2>/dev/tty | sed "s/:.*//" ').'"'
 nnoremap b :bookmark<cr>
 
 
@@ -148,8 +142,7 @@ nnoremap b :bookmark<cr>
 command! cdfind :execute 'cd' "'".term('fd --type d --hidden --exclude .git --full-path  | peco 2> /dev/tty')."'"
 nnoremap C :cdfind<cr>
 
-
-:com cheatsheet vi ~/.vifm/cheatsheet.txt
+:com cheatsheet vi ~/.config/vifm/cheatsheet.txt
 
 
 "----------------------------------------------------------------------
@@ -157,45 +150,50 @@ nnoremap C :cdfind<cr>
 "----------------------------------------------------------------------
 command code code .
 
+nnoremap . :!explorer.exe  . &<cr>
+
+" Open Default Application
+nnoremap X :!explorer.exe %c &<cr>
+
 nnoremap F :file<cr>
 
-nnoremap . :!open . <cr>
+filetype *.txt explorer.exe %c &
+filetype *.md explorer.exe %c &
+filetype *.pdf wslview %c
+filetype *.sh explorer.exe %c &
+filetype *.sql explorer.exe %c &
 
-" Open the current file with the associated default application
-nnoremap X :!open %f<cr>
 
-
-filetype *.txt open
-filetype *.md open
-filetype *.pdf open
-filetype *.sh open
-filetype *.sql open
+" sudo apt install ubuntu-wsl "
 
 " Office files  "
-filetype *.doc,*.docx open
-filetype *.xls,*.xlsx,*.xlsm open
-filetype *.ppt,*.pptx open
-filetype *.ods open
-filetype *.odt open
+filetype *.doc,*.docx wslview %c
+filetype *.xls,*.xlsx,*.xlsm wslview %c
+filetype *.ppt,*.pptx wslview %c
+filetype *.ods wslview %c
+filetype *.odt wslview %c
 
 
-" Open .pkg binaries  "
-filetype *.pkg open
-
-" Google Drive"
-filetype *.gsheet open
-filetype *.gslides open
-filetype *.gdoc open
+" Multimedia
+filextype *.mp3,*.wav ffplay -x 800 -y 600 -loop -1 -hide_banner -autoexit %f
+filextype *.mp4,*.mkv,*.avi,*.flac ffplay -x 800 -y 600 -hide_banner -autoexit %f
+" filetype *.mp4 explorer.exe %c &
+" filetype *.mp3 explorer.exe %c &
 
 
-" Drawio "
-filetype *.drawio  open
+filetype *.doc,*.docx explorer.exe %c &
+filetype *.xls,*.xlsx explorer.exe %c &
+filetype *.ppt,*.pptx explorer.exe %c &
 
 
-" Image
-filetype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-       \ open -a Preview.app,
+filetype *.ods explorer.exe %c &
+filetype *.odt explorer.exe %c &
 
+filetype *.drowio explorer.exe %c &
+
+" Images
+" filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm display -immutable -gravity center -geometry +0+0 %f &
+filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> explorer.exe %c &
 
 "-----------------
 " FUSE
@@ -215,6 +213,5 @@ set slowfs=curlftpfs
 "icon
 "-----------------
 " https://github.com/cirala/vifm_devicons
-source ~/.vifm/favicons.vifm
-
+source ~/.config/vifm/favicons.vifm
 
